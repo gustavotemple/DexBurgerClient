@@ -1,0 +1,9 @@
+<div *ngIf="order" class="orders">
+  <h2>Detalhes do pedido {{order._id}}</h2>
+  <div><span>Lanches: </span>{{order.burgers}}</div>
+  <div>
+    <button routerLink="/order-edit/{{order._id}}">
+      Editar
+    </button>
+  </div>
+</div>
