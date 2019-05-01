@@ -1,0 +1,12 @@
+<h2>Cardapio</h2>
+
+  <ul class="burgers">
+    <li *ngFor="let burger of burgers">
+      {{ burger.name }} ( {{burger.price}} )
+	<ul>
+      <li *ngFor="let ingredient of burger.ingredients">
+		{{ ingredient.name }}
+		</li>
+	  </ul>
+    </li>
+  </ul>

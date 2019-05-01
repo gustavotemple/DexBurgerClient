@@ -21,6 +21,16 @@ export class RestService {
     let body = res;
     return body || { };
   }
+  
+  getIngredients(): Observable<any> {
+    return this.http.get(endpoint + 'ingredients').pipe(
+      map(this.extractData));
+  }
+  
+  getBurgers(): Observable<any> {
+    return this.http.get(endpoint + 'burgers').pipe(
+      map(this.extractData));
+  }
 
   getOrders(): Observable<any> {
     return this.http.get(endpoint + 'orders').pipe(

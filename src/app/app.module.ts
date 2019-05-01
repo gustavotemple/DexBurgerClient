@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { BurgerComponent } from './burger/burger.component';
+import { IngredientComponent } from './ingredient/ingredient.component';
 import { OrderComponent } from './order/order.component';
 import { OrderAddComponent } from './order-add/order-add.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
@@ -13,6 +15,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
+
+  {
+    path: 'extras',
+    component: IngredientComponent,
+    data: { title: 'Extras' }
+  },
+  {
+    path: 'menu',
+    component: BurgerComponent,
+    data: { title: 'Cardapio' }
+  },
   {
     path: 'orders',
     component: OrderComponent,
@@ -42,6 +55,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+	IngredientComponent,
+	BurgerComponent,
     OrderComponent,
     OrderAddComponent,
     OrderDetailComponent,
