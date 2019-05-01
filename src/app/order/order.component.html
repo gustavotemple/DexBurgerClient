@@ -2,16 +2,16 @@
 
 <div>
   <button (click)="add()">
-    Adicionar
+    Novo pedido
   </button>
 </div>
 
 <ul class="orders">
-  <li *ngFor="let o of orders; let i=index;">
+  <li *ngFor="let o of orders;">
     <a routerLink="/order-details/{{o._id}}">
-      <span class="badge">{{i+1}}</span>
-    </a>
+      Pedido <span class="badge">{{o._id}}</span>
+    </a> &nbsp;
     <button class="delete" title="delete order"
-      (click)="delete(o._id)">x</button>
+      (click)="delete(o._id)">remover</button>
   </li>
 </ul>

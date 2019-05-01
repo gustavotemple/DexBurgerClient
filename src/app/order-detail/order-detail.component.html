@@ -1,6 +1,20 @@
 <div *ngIf="order" class="orders">
   <h2>Detalhes do pedido {{order._id}}</h2>
-  <div><span>Lanches: </span>{{order.burgers}}</div>
+  <h3>Preço total: {{order.total_price}}</h3>
+
+  <div><span>Lanches: </span></div>
+
+  <ul>
+    <li *ngFor="let burger of order.burgers">
+      {{ burger.name }} ( {{burger.price}} )
+	<ul>
+      <li *ngFor="let ingredient of burger.ingredients">
+		{{ ingredient.name }}
+		</li>
+	  </ul>
+    </li>
+  </ul>
+
   <div>
     <button routerLink="/order-edit/{{order._id}}">
       Editar
