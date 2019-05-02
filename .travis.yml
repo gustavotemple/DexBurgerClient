@@ -7,6 +7,10 @@ node_js:
   
 before_script:
   - npm install -g @angular/cli
+  - npm install jquery --save
+  - npm install popper --save
+  - npm install popper.js --save
+  - npm install bootstrap --save
 
 script:
 - ng build --prod
