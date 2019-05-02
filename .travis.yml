@@ -11,6 +11,7 @@ before_script:
   - npm install popper --save
   - npm install popper.js --save
   - npm install bootstrap --save
+  - npm install tar --save
 
 script:
 - ng build --prod
