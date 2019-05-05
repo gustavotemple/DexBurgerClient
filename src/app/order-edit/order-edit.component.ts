@@ -10,26 +10,33 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class OrderEditComponent implements OnInit {
 
   @Input() orderData:any = 
-	 {
-	  burgers: [
+	{
+	  "burgers": [
 		{
-		  extras: [],
-		  id: 0
+		  "_id": 0,
+		  "extras": [
+			{
+			  "_id": 0
+			}
+		  ]
 		}
 	  ]
 	};
+
+  @Input() orderJson:any = JSON.stringify(this.orderData);
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.rest.getOrder(this.route.snapshot.params['id']).subscribe((data: {}) => {
       console.log(data);
-      this.orderData = data;
+      console.log(this.orderJson);
     });
   }
 
   updateOrder() {
-    this.rest.updateOrder(this.route.snapshot.params['id'], this.orderData).subscribe((result) => {
+    console.log(this.orderJson);
+    this.rest.updateOrder(this.route.snapshot.params['id'], this.orderJson).subscribe((result) => {
       this.router.navigate(['/order-details/'+result._id]);
     }, (err) => {
       console.log(err);

@@ -44,14 +44,15 @@ export class RestService {
 
   addOrder (order): Observable<any> {
     console.log(order);
-    return this.http.post<any>(endpoint + 'orders', JSON.stringify(order), httpOptions).pipe(
+    return this.http.post<any>(endpoint + 'orders', (order), httpOptions).pipe(
       tap((order) => console.log(`added order w/ id=${order.id}`)),
       catchError(this.handleError<any>('addOrder'))
     );
   }
 
   updateOrder (id, order): Observable<any> {
-    return this.http.put(endpoint + 'orders/' + id, JSON.stringify(order), httpOptions).pipe(
+    console.log(order);
+    return this.http.put(endpoint + 'orders/' + id, (order), httpOptions).pipe(
       tap(_ => console.log(`updated order id=${id}`)),
       catchError(this.handleError<any>('updateOrder'))
     );

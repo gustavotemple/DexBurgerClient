@@ -2,7 +2,7 @@
   <h2>Adicionar Pedido</h2>
   <div>
     <label>Lanches do pedido:
-      <input [(ngModel)]="orderData.burgers" placeholder="Lanches do pedido"/>
+      <textarea rows="5" cols="20" [(ngModel)]="orderJson" placeholder="Lanches do pedido"></textarea>
     </label><br>
   </div>
   <button (click)="addOrder()">Salvar</button>

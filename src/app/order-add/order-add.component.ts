@@ -10,14 +10,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class OrderAddComponent implements OnInit {
 
   @Input() orderData =
-  {
-	  burgers: [
+	{
+	  "burgers": [
 		{
-		  extras: [],
-		  id: 0
+		  "_id": 0,
+		  "extras": [
+			{
+			  "_id": 0
+			}
+		  ]
 		}
 	  ]
 	};
+
+	@Input() orderJson = JSON.stringify(this.orderData);
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
@@ -25,7 +31,8 @@ export class OrderAddComponent implements OnInit {
   }
 
   addOrder() {
-    this.rest.addOrder(this.orderData).subscribe((result) => {
+    console.log(this.orderJson);
+    this.rest.addOrder(this.orderJson).subscribe((result) => {
       this.router.navigate(['/order-details/'+result._id]);
     }, (err) => {
       console.log(err);
