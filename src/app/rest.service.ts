@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpoint = 'http://localhost:8090/api/v1/';
+const endpoint = 'http://localhost:80/api/v1/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
